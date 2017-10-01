@@ -1,7 +1,7 @@
 {
   "name": "Weather App",
   "description": "A basic app to fetch and display weather data",
-  "repository": "",
+  "repository": "https://github.com/bkapke/weather-app.git",
   "logo": "",
   "keywords": ["node", "express", "heroku"],
   "image": ""

@@ -5,7 +5,21 @@
 </head>
 <body ng-app="weatherApp" ng-cloak>
     <div class="wrapper">
-    <div ng-controller="Main as main">Hello, {{main.name}}</div>
+    <div ng-controller="Main as main">
+      <md-toolbar layout="row" class="md-hue-3">
+          <div class="md-toolbar-tools">
+              <span>{{main.weather.city.name}} 5 Day Forcast</span>
+          </div>
+      </md-toolbar>
+      <h3>Humdity</h3>
+      <svg class="humidity-graph"></svg>
+      
+      <h3>Low Temp</h3>
+      <svg class="low-temp-graph"></svg>
+
+      <h3>High Temp</h3>
+      <svg class="high-temp-graph"></svg>
+      <% include ../partials/5day.ejs %>
     </div>
     <% include ../partials/script-footer.ejs %>
   </body>
