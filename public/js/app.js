@@ -1,4 +1,4 @@
-angular.module("weatherApp", ['ngMaterial']);
+angular.module("weatherApp", ['ngMaterial', 'angular.filter']);
 
 
 // Weather service
@@ -22,6 +22,14 @@ angular.module("weatherApp").service('weatherService', [
         }
       }
     };
+
+    self.processWeather = function(weather) {
+        var list = weather.list,
+            length = list.length;
+        for (var i = 0; i <length; i++) {
+            list[i].sort_day = list[i].dt_txt.split(" ")[0];
+        } 
+    };
     //history
     var url = 'https://api.openweathermap.org/data/2.5/forecast?units=imperial&id=' + cities.minneapolis.id + '&' + self.apiKey;
     self.getWeather = function() {
@@ -29,6 +37,7 @@ angular.module("weatherApp").service('weatherService', [
         if(!self.weather) {
             $http.get(url).then(function(res) {
                 self.weather = res.data;
+                self.processWeather(self.weather) 
                 deferred.resolve(res.data);
             });
         } else {
@@ -51,8 +60,6 @@ angular.module("weatherApp").service('weatherService', [
         }
         return deferred.promise;
     };
-
-    self.getWeatherNow()
 
 }]);
 
@@ -114,8 +121,16 @@ function (weatherService, graphService, appUtils) {
     });
 
     self.formatDate = function(date) {
-        return moment(date).format('dddd hh:mmA');
+        return moment(date).format('dddd hh:mm a');
     }
+
+    self.getDay = function(date) {
+        return moment(date).format('dddd');
+    }
+
+    self.getSunriseOrSunset = function(date) {
+        return moment(date).format('hh:mm A');
+    };
 
     self.initGraphs = function() {
         var humidityData = appUtils.getValueArrayByProps(self.weather.list, 'main', 'humidity'),
