@@ -34,3 +34,7 @@ svg {
 .clear {
   clear: both;
 }
+
+[role="tabpanel"] {
+  transition: none;
+}

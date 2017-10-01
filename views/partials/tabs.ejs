@@ -1,13 +1,13 @@
 <div ng-cloak>
     <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tabs md-dynamic-height md-border-bottom md-no-ink-bar md-ink-ripple="false">
         <md-tab label="Now">
             <md-content class="md-padding">
                 <h1 class="md-display-2">Now</h1>
                 <!-- API returns wrong sunset val -->
                 <!-- <p>Sunset : {{main.getSunriseOrSunset(main.currentForcast.sys.sunset)}}</p> -->
                 <img class="current-forecast-icon" ng-src="http://openweathermap.org/img/w/{{main.currentForcast.weather[0].icon}}.png" class="md-avatar" alt="{{item.who}}" />
-                <h1 class="main-temp"> {{main.currentForcast.main.temp | number : 0}} &deg; F</h1>
+                <h1 class="main-temp"> {{main.currentForcast.main.temp | number : 0}} &deg;F</h1>
                 <p class="clear">Sunrise : {{main.getSunriseOrSunset(main.currentForcast.sys.sunrise)}}</p>
             </md-content>
         </md-tab>
