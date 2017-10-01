@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+<body ng-app="weatherApp" ng-cloak>
+    <div class="wrapper">
+    <div ng-controller="Main as main">Hello, {{main.name}}</div>
+    </div>
+    <% include ../partials/script-footer.ejs %>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "Weather App",
+  "description": "A basic app to fetch and display weather data",
+  "repository": "",
+  "logo": "",
+  "keywords": ["node", "express", "heroku"],
+  "image": ""
+}

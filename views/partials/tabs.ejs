@@ -1,0 +1,21 @@
+<div ng-controller="Tabs">
+    <md-content class="md-padding">
+        <md-nav-bar
+            md-no-ink-bar="disableInkBar"
+            md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
+                <md-nav-item md-active md-nav-click="goto('page1')" name="page1">
+                    Page One
+                </md-nav-item>
+                <md-nav-item md-nav-click="goto('page2')" name="page2">
+                    Page Two
+                </md-nav-item>
+                <md-nav-item md-nav-click="goto('page3')" name="page3">
+                    Page Three
+                </md-nav-item>
+        </md-nav-bar>
+        <div class="ext-content">
+        External content for `<span>{{currentNavItem}}</span>`.
+        </div>
+    </md-content> 
+</div>
