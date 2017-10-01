@@ -8,18 +8,10 @@
     <div ng-controller="Main as main">
       <md-toolbar layout="row" class="md-hue-3">
           <div class="md-toolbar-tools">
-              <span>{{main.weather.city.name}} 5 Day Forcast</span>
+              <span>{{main.weather.city.name}} Weather</span>
           </div>
       </md-toolbar>
-      <h3>Humdity</h3>
-      <svg class="humidity-graph"></svg>
-      
-      <h3>Low Temp</h3>
-      <svg class="low-temp-graph"></svg>
-
-      <h3>High Temp</h3>
-      <svg class="high-temp-graph"></svg>
-      <% include ../partials/5day.ejs %>
+      <% include ../partials/tabs.ejs %>
     </div>
     <% include ../partials/script-footer.ejs %>
   </body>

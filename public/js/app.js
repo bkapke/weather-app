@@ -29,13 +29,31 @@ angular.module("weatherApp").service('weatherService', [
         if(!self.weather) {
             $http.get(url).then(function(res) {
                 self.weather = res.data;
-                deferred.resolve(res.data)
+                deferred.resolve(res.data);
             });
         } else {
             deferred.resolve(self.weather);
         }
         return deferred.promise;
     };
+    //weather?id=2172797
+
+    var currentForecastUrl = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&id=' + cities.minneapolis.id + '&' + self.apiKey;
+    self.getWeatherNow = function() {
+        var deferred = $q.defer();
+        if(!self.currentForcast) {
+            $http.get(currentForecastUrl).then(function(res) {
+                self.currentForecast = res.data;
+                deferred.resolve(res.data);
+            });
+        } else {
+            deferred.resolve(self.currentForecast);
+        }
+        return deferred.promise;
+    };
+
+    self.getWeatherNow()
+
 }]);
 
 angular.module("weatherApp").service('graphService', [function() {
@@ -87,6 +105,11 @@ function (weatherService, graphService, appUtils) {
     self.weather = null;
     weatherService.getWeather().then(function(res){
         self.weather = res;
+        self.initGraphs();
+    });
+
+    weatherService.getWeatherNow().then(function(res){
+        self.currentForcast = res;
         self.initGraphs();
     });
 

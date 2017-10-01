@@ -2,18 +2,18 @@ html, body {
   margin: 0;
   height: 100%
 }
+
 .wrapper {
   max-width: 980px;
   margin: 0 auto;
 }
+
 svg {
   height:120px;
   max-width: 980px;
   margin: 0 auto;
 }
-/* .humidity-graph {
-  height:1000px
-} */
+
 .bar {
   fill: #0080FF
 }

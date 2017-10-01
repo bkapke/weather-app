@@ -1,21 +1,24 @@
-<div ng-controller="Tabs">
-    <md-content class="md-padding">
-        <md-nav-bar
-            md-no-ink-bar="disableInkBar"
-            md-selected-nav-item="currentNavItem"
-            nav-bar-aria-label="navigation links">
-                <md-nav-item md-active md-nav-click="goto('page1')" name="page1">
-                    Page One
-                </md-nav-item>
-                <md-nav-item md-nav-click="goto('page2')" name="page2">
-                    Page Two
-                </md-nav-item>
-                <md-nav-item md-nav-click="goto('page3')" name="page3">
-                    Page Three
-                </md-nav-item>
-        </md-nav-bar>
-        <div class="ext-content">
-        External content for `<span>{{currentNavItem}}</span>`.
-        </div>
-    </md-content> 
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Now">
+            <md-content class="md-padding">
+                <h1 class="md-display-2">Now</h1>
+                <img class="current-forecast-icon" ng-src="http://openweathermap.org/img/w/{{main.currentForcast.weather[0].icon}}.png" class="md-avatar" alt="{{item.who}}" />
+            </md-content>
+        </md-tab>
+        <md-tab label="5 Day">
+            <md-content class="md-padding">
+                <h1 class="md-display-2">5 Day</h1>
+                <% include ../partials/5day.ejs %>
+            </md-content>
+        </md-tab>
+        <md-tab label="Graphs">
+            <md-content class="md-padding">
+                <h1 class="md-display-2">Graphs</h1>
+                <% include ../partials/graphs.ejs %>
+            </md-content>
+        </md-tab>
+        </md-tabs>
+    </md-content>
 </div>
