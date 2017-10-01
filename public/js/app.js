@@ -23,7 +23,7 @@ angular.module("weatherApp").service('weatherService', [
       }
     };
     //history
-    var url = 'http://api.openweathermap.org/data/2.5/forecast?units=imperial&id=' + cities.minneapolis.id + '&' + self.apiKey;
+    var url = 'https://api.openweathermap.org/data/2.5/forecast?units=imperial&id=' + cities.minneapolis.id + '&' + self.apiKey;
     self.getWeather = function() {
         var deferred = $q.defer();
         if(!self.weather) {
